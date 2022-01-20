@@ -1,0 +1,40 @@
+Testable Format
+
+#include <stdio.h>
+//void modify_output(unsigned char pins){
+int main()
+{
+    unsigned char pins;
+    int i;
+    printf("Enter value for pins: ");
+    scanf("%hhu", &pins);
+    printf("%d\n\r", pins);
+    for (i=0;i<8;i++){
+        if(pins&1){
+            printf("1");
+            //set_output(i);
+        } else{
+            printf("0");
+            //reset_output(i);
+        }
+        pins=pins>>1;
+    }
+}
+//}
+
+
+Used in C IDE
+
+void modify_output(unsigned char pins){
+    int i;
+    for (i=0;i<8;i++){
+        if(pins&1){
+            set_output(i);
+
+        } else{
+            reset_output(i);
+
+        }
+        pins=pins>>1;
+    }
+}
